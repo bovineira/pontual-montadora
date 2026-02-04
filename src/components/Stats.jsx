@@ -71,10 +71,14 @@ const CountUpNumber = ({ target, suffix, isInView }) => {
 const StatCard = ({ stat, index, isInView }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50, scale: 0.9 }}
-      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.9 }}
-      transition={{ duration: 0.6, delay: index * 0.15 }}
-      whileHover={{ y: -5, scale: 1.03 }}
+      initial={{ opacity: 0, y: 24 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.12,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      }}
+      whileHover={{ y: -4, scale: 1.02 }}
       className="relative group"
     >
       <div className="glass-card rounded-2xl p-8 sm:p-10 text-center hover:border-[#f39200]/50 transition-all duration-500">

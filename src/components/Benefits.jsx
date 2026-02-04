@@ -66,9 +66,13 @@ const BenefitItem = ({ benefit, index, isInView, side }) => {
 const BenefitCard = ({ title, icon: Icon, benefits, isInView, side, delay }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.95 }}
-      transition={{ duration: 0.8, delay }}
+      initial={{ opacity: 0, y: 24 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      transition={{
+        duration: 0.55,
+        delay,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      }}
       whileHover={{ y: -5 }}
       className="group relative"
     >

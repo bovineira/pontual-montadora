@@ -80,10 +80,14 @@ const ServiceCard = ({ service, index }) => {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ y: -8, scale: 1.02 }}
+      initial={{ opacity: 0, y: 24 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.08,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      }}
+      whileHover={{ y: -6, scale: 1.02 }}
       className="group glass-card rounded-2xl p-6 sm:p-8 hover:border-[#f39200]/50 transition-all duration-500"
     >
       {/* Icon */}
