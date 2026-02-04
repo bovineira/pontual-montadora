@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Base Styles */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #0a2a33;
+    color: white;
+    overflow-x: hidden;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #061c22;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #f39200;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e08500;
+  }
+
+  /* Selection */
+  ::selection {
+    background: #f39200;
+    color: #0a2a33;
+  }
+}
+
+/* Custom Components */
+@layer components {
+  /* Shine Animation for Buttons */
+  .btn-shine {
+    @apply relative overflow-hidden;
+  }
+
+  .btn-shine::after {
+    content: '';
+    @apply absolute top-0 left-0 w-1/2 h-full;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    animation: shine 3s infinite;
+  }
+
+  /* Glassmorphism Utilities */
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-white/[0.08] backdrop-blur-2xl border border-white/[0.15];
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Text Gradient */
+  .text-gradient {
+    @apply inline bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #f39200 0%, #ffa726 50%, #f39200 100%);
+  }
+
+  /* Parallax Background */
+  .parallax-bg {
+    @apply bg-fixed bg-center bg-no-repeat bg-cover;
+  }
+}
+
+/* Animations */
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
