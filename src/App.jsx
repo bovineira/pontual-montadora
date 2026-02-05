@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Marketplaces from './components/Marketplaces';
 import Services from './components/Services';
 import Stats from './components/Stats';
 import MissionVisionValues from './components/MissionVisionValues';
@@ -47,6 +48,7 @@ function App() {
       
       <main className="w-full">
         <Hero />
+        <Marketplaces />
         <Services />
         <Stats />
         <MissionVisionValues />
@@ -55,7 +57,7 @@ function App() {
 
       <Footer />
 
-      {/* WhatsApp Float Button (Mobile) */}
+      {/* WhatsApp Float Button (Mobile + Desktop) */}
       <motion.a
         href="https://wa.me/5511999999999"
         target="_blank"
@@ -65,11 +67,11 @@ function App() {
         transition={{ delay: 2, duration: 0.5 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl shadow-[#25D366]/40 z-50 md:hidden"
+        className="fixed bottom-6 right-6 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl shadow-[#25D366]/40 z-50"
         aria-label="WhatsApp"
       >
         <svg
-          className="w-7 h-7 text-white"
+          className="w-7 h-7 md:w-8 md:h-8 text-white"
           fill="currentColor"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"

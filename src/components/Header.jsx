@@ -27,8 +27,8 @@ const Header = () => {
       }`}
     >
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex items-center justify-between h-20 sm:h-24 lg:h-28">
-          {/* Logo - levemente maior */}
+        <div className="flex items-center justify-between h-24 sm:h-28 lg:h-32">
+          {/* Logo - tamanho aumentado */}
           <motion.a
             href="#"
             whileHover={{ scale: 1.02 }}
@@ -37,7 +37,7 @@ const Header = () => {
             <img
               src="/images/logo-pontual.webp"
               alt="Pontual Montagem de Móveis"
-              className="h-14 sm:h-16 md:h-[4.25rem] lg:h-20 w-auto object-contain"
+              className="h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 w-auto object-contain"
             />
           </motion.a>
 

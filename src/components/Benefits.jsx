@@ -2,17 +2,13 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
-  Store,
-  HardHat,
-  TrendingUp,
-  Shield,
   Clock,
-  DollarSign,
+  Shield,
+  TrendingUp,
   Headphones,
+  DollarSign,
   Star,
-  Briefcase,
-  Users,
-  Award,
+  CheckCircle2,
 } from 'lucide-react';
 
 // Ícone do WhatsApp customizado
@@ -27,29 +23,20 @@ const WhatsAppIcon = ({ className }) => (
   </svg>
 );
 
-const varejistaBenefits = [
+const clientBenefits = [
   { icon: Clock, text: 'Agendamento flexível e pontual' },
-  { icon: Shield, text: 'Garantia em todos os serviços' },
-  { icon: TrendingUp, text: 'Redução de reclamações de clientes' },
-  { icon: Headphones, text: 'Suporte dedicado 24/7' },
-  { icon: DollarSign, text: 'Preços competitivos' },
-  { icon: Star, text: 'Montadores certificados' },
+  { icon: Shield, text: 'Garantia em todos os serviços realizados' },
+  { icon: Star, text: 'Montadores certificados e experientes' },
+  { icon: Headphones, text: 'Suporte e atendimento dedicado' },
+  { icon: DollarSign, text: 'Preços transparentes e competitivos' },
+  { icon: CheckCircle2, text: 'Serviço completo e profissional' },
 ];
 
-const montadorBenefits = [
-  { icon: Briefcase, text: 'Fluxo constante de trabalho' },
-  { icon: DollarSign, text: 'Pagamento garantido e pontual' },
-  { icon: Users, text: 'Capacitação e treinamentos' },
-  { icon: Award, text: 'Reconhecimento e bonificações' },
-  { icon: Shield, text: 'Suporte técnico especializado' },
-  { icon: TrendingUp, text: 'Crescimento profissional' },
-];
-
-const BenefitItem = ({ benefit, index, isInView, side }) => {
+const BenefitItem = ({ benefit, index, isInView }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, x: side === 'left' ? -30 : 30 }}
-      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: side === 'left' ? -30 : 30 }}
+      initial={{ opacity: 0, x: -20 }}
+      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="flex items-center space-x-4 group"
     >
@@ -63,7 +50,7 @@ const BenefitItem = ({ benefit, index, isInView, side }) => {
   );
 };
 
-const BenefitCard = ({ title, icon: Icon, benefits, isInView, side, delay }) => {
+const BenefitCard = ({ title, icon: Icon, benefits, isInView, delay }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -74,7 +61,7 @@ const BenefitCard = ({ title, icon: Icon, benefits, isInView, side, delay }) => 
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
       whileHover={{ y: -5 }}
-      className="group relative"
+      className="group relative max-w-2xl mx-auto"
     >
       {/* Glow Effect */}
       <div className="absolute -inset-0.5 bg-gradient-to-r from-[#f39200]/20 to-[#ffa726]/20 rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
@@ -98,30 +85,16 @@ const BenefitCard = ({ title, icon: Icon, benefits, isInView, side, delay }) => 
         </div>
 
         {/* Benefits List */}
-        <div className="space-y-4 mb-8">
+        <div className="space-y-4">
           {benefits.map((benefit, index) => (
             <BenefitItem
               key={index}
               benefit={benefit}
               index={index}
               isInView={isInView}
-              side={side}
             />
           ))}
         </div>
-
-        {/* CTA - Botão padrão com WhatsApp */}
-        <motion.a
-          href="https://wa.me/5511999999999"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.02, y: -2 }}
-          whileTap={{ scale: 0.98 }}
-          className="btn-shine w-full flex items-center justify-center gap-3 bg-[#f39200] hover:bg-[#e08500] text-[#0a2a33] font-bold py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#f39200]/30"
-        >
-          <WhatsAppIcon className="w-5 h-5" />
-          <span>FALAR CONOSCO</span>
-        </motion.a>
       </div>
     </motion.div>
   );
@@ -138,9 +111,6 @@ const Benefits = () => {
 
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#f39200]/30 to-transparent" />
-
-      {/* Center Divider Glow */}
-      <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-3/4 bg-gradient-to-b from-transparent via-[#f39200]/30 to-transparent" />
 
       {/* Floating Orbs */}
       <motion.div
@@ -171,32 +141,43 @@ const Benefits = () => {
             Vantagens Exclusivas
           </motion.span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-            Benefícios para <span className="text-gradient">Todos</span>
+            Por que escolher a <span className="text-gradient">Pontual</span>?
           </h2>
           <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto">
-            Uma parceria que gera valor para varejistas e montadores, criando um ecossistema de sucesso.
+            Oferecemos o melhor serviço de montagem de móveis com profissionais qualificados e compromisso com a excelência.
           </p>
         </motion.div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+        {/* Card Único Centralizado */}
+        <div className="mb-12">
           <BenefitCard
-            title="Para Varejistas"
-            icon={Store}
-            benefits={varejistaBenefits}
+            title="Para você!"
+            icon={Star}
+            benefits={clientBenefits}
             isInView={isInView}
-            side="left"
             delay={0.2}
           />
-          <BenefitCard
-            title="Para Montadores"
-            icon={HardHat}
-            benefits={montadorBenefits}
-            isInView={isInView}
-            side="right"
-            delay={0.4}
-          />
         </div>
+
+        {/* CTA Único - Contratar Montador */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex justify-center"
+        >
+          <motion.a
+            href="https://wa.me/5511999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05, y: -4 }}
+            whileTap={{ scale: 0.98 }}
+            className="btn-shine inline-flex items-center justify-center gap-4 bg-[#f39200] hover:bg-[#e08500] text-[#0a2a33] font-bold text-lg sm:text-xl px-10 sm:px-14 py-5 sm:py-6 rounded-2xl transition-all duration-300 shadow-2xl shadow-[#f39200]/40"
+          >
+            <WhatsAppIcon className="w-7 h-7 sm:w-8 sm:h-8" />
+            <span>CONTRATAR UM MONTADOR</span>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );
