@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Marketplaces from './components/Marketplaces';
 import Services from './components/Services';
 import Stats from './components/Stats';
+import SocialLinks from './components/SocialLinks';
 import MissionVisionValues from './components/MissionVisionValues';
 import Benefits from './components/Benefits';
 import Footer from './components/Footer';
@@ -51,6 +52,7 @@ function App() {
         <Marketplaces />
         <Services />
         <Stats />
+        <SocialLinks />
         <MissionVisionValues />
         <Benefits />
       </main>
