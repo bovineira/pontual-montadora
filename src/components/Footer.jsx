@@ -100,11 +100,11 @@ const Footer = () => {
                 <span className="text-sm">(11) 99999-9999</span>
               </a>
               <a
-                href="mailto:contato@pontual.com.br"
+                href="mailto:pontual.montagem@outlook.com"
                 className="flex items-center space-x-3 text-gray-400 hover:text-[#f39200] transition-colors group"
               >
                 <Mail className="w-4 h-4 group-hover:scale-110 transition-transform flex-shrink-0" />
-                <span className="text-sm">contato@pontual.com.br</span>
+                <span className="text-sm">pontual.montagem@outlook.com</span>
               </a>
               <div className="flex items-center space-x-3 text-gray-400">
                 <MapPin className="w-4 h-4 flex-shrink-0" />
