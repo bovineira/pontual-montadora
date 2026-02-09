@@ -49,10 +49,10 @@ function App() {
       
       <main className="w-full">
         <Hero />
+        <SocialLinks />
         <Marketplaces />
         <Services />
         <Stats />
-        <SocialLinks />
         <MissionVisionValues />
         <Benefits />
       </main>
