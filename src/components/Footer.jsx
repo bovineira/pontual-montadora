@@ -4,11 +4,16 @@ import {
   Phone,
   Mail,
   Instagram,
-  Facebook,
-  Linkedin,
   ArrowUp,
   Heart,
 } from 'lucide-react';
+
+// Ícone TikTok para o footer
+const TikTokIcon = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+  </svg>
+);
 
 // Ícone do WhatsApp customizado
 const WhatsAppIcon = ({ className }) => (
@@ -46,9 +51,9 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:pontual.montagem@outlook.com', label: 'E-mail', target: '_self' },
+    { icon: Instagram, href: 'https://instagram.com/pontualmm', label: 'Instagram', target: '_blank' },
+    { icon: TikTokIcon, href: 'https://www.tiktok.com/@pontualmm', label: 'TikTok', target: '_blank' },
   ];
 
   return (
@@ -193,6 +198,8 @@ const Footer = () => {
                 <motion.a
                   key={index}
                   href={social.href}
+                  target={social.target}
+                  rel={social.target === '_blank' ? 'noopener noreferrer' : undefined}
                   whileHover={{ scale: 1.15, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-10 h-10 bg-white/5 hover:bg-[#f39200] rounded-xl flex items-center justify-center text-gray-400 hover:text-[#0a2a33] transition-all duration-300"
