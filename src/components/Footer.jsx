@@ -93,11 +93,11 @@ const Footer = () => {
             {/* Contact Info */}
             <div className="space-y-3">
               <a
-                href="tel:+5511999999999"
+                href="tel:+5571983894091"
                 className="flex items-center space-x-3 text-gray-400 hover:text-[#f39200] transition-colors group"
               >
                 <Phone className="w-4 h-4 group-hover:scale-110 transition-transform flex-shrink-0" />
-                <span className="text-sm">(11) 99999-9999</span>
+                <span className="text-sm">(71) 98389-4091</span>
               </a>
               <a
                 href="mailto:pontual.montagem@outlook.com"
@@ -172,7 +172,7 @@ const Footer = () => {
             <p className="text-gray-400">Entre em contato e solicite um orçamento.</p>
           </div>
           <motion.a
-            href="https://wa.me/5511999999999"
+            href="https://wa.me/5571983894091?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20consultor"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, y: -2 }}

@@ -239,7 +239,7 @@ const Marketplaces = () => {
           className="flex justify-center"
         >
           <motion.a
-            href="https://wa.me/5511999999999"
+            href="https://wa.me/5571983894091?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20um%20consultor"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05, y: -4 }}
