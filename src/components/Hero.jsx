@@ -103,9 +103,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mb-14 sm:mb-16 leading-relaxed"
           >
-            Há <span className="text-[#f39200] font-semibold">10 anos</span> sendo a principal referência nacional em soluções de montagem, com{' '}
-            <span className="text-[#f39200] font-semibold">99% de pontualidade</span> e presença em{' '}
-            <span className="text-[#f39200] font-semibold">7 estados</span>.
+            Há <span className="text-[#f39200] font-semibold">10 anos</span> sendo a principal referência nacional em soluções de montagem de móveis e presença em <span className="text-[#f39200] font-semibold">todos os estados do Brasil</span>.
           </motion.p>
 
           {/* Video Container */}

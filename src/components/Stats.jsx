@@ -20,10 +20,10 @@ const stats = [
   },
   {
     icon: MapPin,
-    number: 7,
+    number: 27,
     suffix: '',
-    label: 'Estados Atendidos',
-    description: 'SP, BA, RN, TO, PA, CE, AL',
+    label: 'Estados do Brasil',
+    description: 'Atendemos todos os estados do Brasil.',
   },
   {
     icon: Clock,
