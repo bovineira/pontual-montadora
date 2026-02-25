@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Package } from 'lucide-react';
 
@@ -107,76 +108,80 @@ const Header = () => {
         </AnimatePresence>
       </motion.header>
 
-      {/* Modal Móveis Indicados */}
-      <AnimatePresence>
-        {isMoveisModalOpen && (
-          <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100]"
-              onClick={() => setIsMoveisModalOpen(false)}
-              aria-hidden="true"
-            />
-            {/* Modal */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 10 }}
-              transition={{
-                type: 'spring',
-                damping: 25,
-                stiffness: 300,
-                duration: 0.4,
-              }}
-              className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[101] w-[calc(100%-2rem)] max-w-md"
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="moveis-modal-title"
-            >
-              <div className="relative glass-card rounded-3xl p-8 sm:p-10 border border-white/20 shadow-2xl">
-                {/* Botão fechar */}
-                <button
-                  onClick={() => setIsMoveisModalOpen(false)}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-                  aria-label="Fechar"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+      {/* Modal Móveis Indicados — renderizado em portal para centralizar na viewport (desktop e mobile) */}
+      {createPortal(
+        <AnimatePresence>
+          {isMoveisModalOpen && (
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100]"
+                onClick={() => setIsMoveisModalOpen(false)}
+                aria-hidden="true"
+              />
+              {/* Modal: fixo na viewport e centralizado */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{
+                  type: 'spring',
+                  damping: 25,
+                  stiffness: 300,
+                }}
+                className="fixed inset-0 z-[101] flex items-center justify-center p-4 pointer-events-none"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="moveis-modal-title"
+              >
+                <div className="w-full max-w-md pointer-events-auto">
+                  <div className="relative glass-card rounded-3xl p-8 sm:p-10 border border-white/20 shadow-2xl">
+                    {/* Botão fechar */}
+                    <button
+                      onClick={() => setIsMoveisModalOpen(false)}
+                      className="absolute top-4 right-4 w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                      aria-label="Fechar"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
 
-                {/* Ícone */}
-                <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#f39200] to-[#e08500] flex items-center justify-center">
-                  <Package className="w-8 h-8 text-[#0a2a33]" />
+                    {/* Ícone */}
+                    <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#f39200] to-[#e08500] flex items-center justify-center">
+                      <Package className="w-8 h-8 text-[#0a2a33]" />
+                    </div>
+
+                    {/* Headline */}
+                    <h2
+                      id="moveis-modal-title"
+                      className="text-xl sm:text-2xl font-bold text-white text-center mb-6 leading-tight"
+                    >
+                      Saiba quais são nossos móveis indicados clicando abaixo
+                    </h2>
+
+                    {/* CTA WhatsApp */}
+                    <motion.a
+                      href={MOVEIS_INDICADOS_WHATSAPP}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.03, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="btn-shine w-full flex items-center justify-center gap-3 bg-[#f39200] hover:bg-[#e08500] text-[#0a2a33] font-bold text-base sm:text-lg py-4 px-6 rounded-xl shadow-lg shadow-[#f39200]/40 transition-colors"
+                    >
+                      <WhatsAppIcon className="w-6 h-6" />
+                      <span>Quero saber os móveis indicados</span>
+                    </motion.a>
+                  </div>
                 </div>
-
-                {/* Headline */}
-                <h2
-                  id="moveis-modal-title"
-                  className="text-xl sm:text-2xl font-bold text-white text-center mb-6 leading-tight"
-                >
-                  Saiba quais são nossos móveis indicados clicando abaixo
-                </h2>
-
-                {/* CTA WhatsApp */}
-                <motion.a
-                  href={MOVEIS_INDICADOS_WHATSAPP}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="btn-shine w-full flex items-center justify-center gap-3 bg-[#f39200] hover:bg-[#e08500] text-[#0a2a33] font-bold text-base sm:text-lg py-4 px-6 rounded-xl shadow-lg shadow-[#f39200]/40 transition-colors"
-                >
-                  <WhatsAppIcon className="w-6 h-6" />
-                  <span>Quero saber os móveis indicados</span>
-                </motion.a>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </>
   );
 };
