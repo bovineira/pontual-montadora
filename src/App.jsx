@@ -8,6 +8,7 @@ import Stats from './components/Stats';
 import SocialLinks from './components/SocialLinks';
 import MissionVisionValues from './components/MissionVisionValues';
 import Benefits from './components/Benefits';
+import TrabalheConosco from './components/TrabalheConosco';
 import Footer from './components/Footer';
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
         <Stats />
         <MissionVisionValues />
         <Benefits />
+        <TrabalheConosco />
       </main>
 
       <Footer />
